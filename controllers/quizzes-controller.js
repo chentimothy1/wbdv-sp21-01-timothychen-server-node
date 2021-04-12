@@ -5,16 +5,16 @@ const quizService = require('../services/quiz-service')
 
 module.exports = (app) => {
 
-    //functions that actually retrieve all the quizzes
   const findAllQuizzes = (req, res) => {
     res.send(quizService.findAllQuizzes());
   }
+
   const findQuizById = (req, res) => {
-    const quizId = req.params['qid'];
+    const quizId = req.params['quizId'];
     const quiz = quizService.findQuizById(quizId);
     res.json(quiz);
   }
 
   app.get('/api/quizzes', findAllQuizzes)
-  app.get('/api/quizzes/:qid', findQuizById)
+  app.get('/api/quizzes/:quizId', findQuizById)
 }
