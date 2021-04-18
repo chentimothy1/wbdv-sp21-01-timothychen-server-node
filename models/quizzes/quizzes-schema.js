@@ -1,5 +1,6 @@
 const mongoose = require("mongoose")
-const quizzes = mongoose.Schema({
+const quizzesSchema = mongoose.Schema(
+    {
     _id: String,
     title: String,
     courseId, String,
@@ -9,7 +10,7 @@ const quizzes = mongoose.Schema({
             ref: "QuestionsModel",
         },
     ],
-}, {collection: "quizzes"}
+    }, {collection: "quizzes"}
 );
 
 module.exports = quizzesSchema;

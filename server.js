@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const bodyParser = require("body-parser");
 
 const mongoose = require('mongoose');
 mongoose.connect(
@@ -7,6 +8,8 @@ mongoose.connect(
   {useNewUrlParser: true, useUnifiedTopology: true});
 
 //configure CORS
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
@@ -22,10 +25,12 @@ app.use(function (req, res, next) {
 
 // const quizController = require("./controllers/quizzes-controller");
 // quizController(app);
-require("./controllers/quizzes-controller")(app);
 
 // const questionsController = require("./controllers/questions-controller");
 // questionsController(app);
+
+require("./controllers/quizzes-controller")(app);
 require("./controllers/questions-controller")(app);
+require("./controllers/quiz-attempts-controller")(app);
 
 app.listen(3001);
