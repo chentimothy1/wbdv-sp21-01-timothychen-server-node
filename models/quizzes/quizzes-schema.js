@@ -2,6 +2,14 @@ const mongoose = require("mongoose")
 const quizzes = mongoose.Schema({
     _id: String,
     title: String,
-}, {collection: "quizzes"});
+    courseId, String,
+    questions: [
+        {
+            type: String,
+            ref: "QuestionsModel",
+        },
+    ],
+}, {collection: "quizzes"}
+);
 
 module.exports = quizzesSchema;
