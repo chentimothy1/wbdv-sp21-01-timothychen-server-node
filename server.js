@@ -1,6 +1,11 @@
 const express = require("express");
 const app = express();
 
+const mongoose = require('mongoose');
+mongoose.connect(
+  'mongodb://localhost:27017/test', 
+  {useNewUrlParser: true, useUnifiedTopology: true});
+
 //configure CORS
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
