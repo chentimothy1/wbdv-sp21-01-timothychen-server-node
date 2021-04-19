@@ -12,7 +12,7 @@ const questionsSchema = mongoose.Schema(
     },
     choices: [String],
     answer: String,
-    }, { collection: "questions" }
+    }, {collection: "questions"}
 );
 
 module.exports = questionsSchema;

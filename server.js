@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 
 const mongoose = require('mongoose');
 mongoose.connect(
-  'mongodb://localhost:27017/test', 
+  'mongodb://localhost:27017/whiteboard-01', 
   {useNewUrlParser: true, useUnifiedTopology: true});
 
 //configure CORS
@@ -33,4 +33,4 @@ require("./controllers/quizzes-controller")(app);
 require("./controllers/questions-controller")(app);
 require("./controllers/quiz-attempts-controller")(app);
 
-app.listen(3001);
+app.listen(3000);
